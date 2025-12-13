@@ -1,7 +1,2 @@
 [build]
-  command = ""
   publish = "."
-  functions = "netlify/functions"
-
-[functions]
-  included_files = ["private/**"]
