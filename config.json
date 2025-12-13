@@ -1,0 +1,71 @@
+{
+  "STRIPE_LINK_STEREO": "https://buy.stripe.com/00w6oIfeTcgCedr2tegA802",
+  "STRIPE_LINK_SUB": "https://buy.stripe.com/3cI6oI7Mr80m0mB7NygA801",
+  "BTC_LINK_STEREO": "https://commerce.coinbase.com/checkout/38684258-8592-48d2-93a7-57c93bbb194a",
+  "BTC_LINK_SUB": "https://commerce.coinbase.com/checkout/fd4e8b09-0405-490a-85ca-e129a8e35543",
+  "STRIPE_LINK_SHU": "https://buy.stripe.com/6oU3cwgiXfsO0mB1pagA803",
+  "BTC_LINK_SHU": "",
+  "VIDEO_EMBED_SHU": "",
+  "SHU_MODULES": [
+    {
+      "title": "Chemistry Basics - Matter and Measurement",
+      "video": "a436f4b3b016fcd97c8a3139fa2ba513",
+      "length": "1:19"
+    },
+    {
+      "title": "Atoms and Radioactivity",
+      "video": "54ea142dd872bf91b18584d2b5fba055",
+      "length": "0:44"
+    },
+    {
+      "title": "Compounds\u2014How Elements Combine",
+      "video": "5847dbaa152b93cc10ab17ff5c830a30",
+      "length": "1:38"
+    },
+    {
+      "title": "Introduction to Organic Compounds",
+      "video": "1f6b9c67b33ab29eccd91c5a40679b77",
+      "length": "1:47"
+    },
+    {
+      "title": "Chemical Reactions",
+      "video": "374a626bd07c7dac406acac916965eda",
+      "length": "1:14"
+    },
+    {
+      "title": "Carbohydrates\u2014Life\u2019s Sweet Molecules",
+      "video": "151cd640f8aa7e9e0aa3f7165953fcfe",
+      "length": "0:46"
+    },
+    {
+      "title": "States of Matter and Their Attractive Forces",
+      "video": "f3e1e6bfc10745492adc88abd58e4d46",
+      "length": "1:27"
+    },
+    {
+      "title": "Solution Chemistry\u2013Sugar and Water Do Mix",
+      "video": "df00f5a019ec9833d1e8ecd5c9d1d9af",
+      "length": "1:05"
+    },
+    {
+      "title": "Acids, Bases, and Buffers in the Body",
+      "video": "c58fde616c6202e36b42bd02153cc3a9",
+      "length": "1:35"
+    },
+    {
+      "title": "Proteins\u2014Workers of the Cell",
+      "video": "c2cd7a3ccd828c3ca5e6ee84908ec22d",
+      "length": "1:09"
+    },
+    {
+      "title": "Nucleic Acids\u2014Big Molecules with a Big Role",
+      "video": "a10629f8b97856222d61548b1c9a5906",
+      "length": "0:38"
+    },
+    {
+      "title": "Food as Fuel\u2014An Overview of Metabolism",
+      "video": "98124045b9465b278901298853f8bf57",
+      "length": "0:54"
+    }
+  ]
+}

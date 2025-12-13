@@ -1,0 +1,5 @@
+/nursing-chemistry-access   /nursing-chemistry-expired.html   302
+/ping         /.netlify/functions/ping 200
+/nursing-chemistry  /private/nursing-chemistry.html 200
+/nursing-chemistry-portal /private/nursing-chemistry-portal.html 200
+/*            /index.html 200
