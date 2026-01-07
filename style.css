@@ -1376,84 +1376,38 @@ header .logo img{
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
-  }
-}
-/* About layout: photo left, text right (stacks on mobile) */
-#about .about-wrap{
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 16px 20px;
-  align-items: start;
-}
-#about .about-photo{
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 1 / 1;     /* keeps it square */
-  object-fit: cover;
-  border-radius: 12px;     /* remove if you prefer sharp corners */
-  display: block;
-}
-@media (max-width: 640px){
-  #about .about-wrap{ grid-template-columns: 1fr; }
-  #about .about-photo{ max-width: 220px; margin: 0 auto 12px; }
-/* The left photo box */
-.about-photo {
-  background: #e9f0f3;     /* same light grey as before */
-  border-radius: 16px;
-  overflow: hidden;         /* clip image inside rounded corners */
-  aspect-ratio: 1 / 1;      /* keeps it square; remove if you prefer a fixed height */
-  min-height: 280px;        /* ensures the box has some height on narrow screens */
-}
-
-/* Make any <img> inside fill the box neatly */
-.about-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* crop edges instead of squishing */
-  display: block;
-}
-}
-/* About photo as background */
-.about-photo{
-  background-image: url("images/sara.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  aspect-ratio: 1 / 1;   /* keeps it square like your placeholder */
-}
-
-/*  nav highlight */
-.nav-{color:#F59E0B !important;font-weight:700}
-@media (max-width: 768px){
-  .nav-{position:relative}
-  .nav-::after{
-    content:"";
-    position:absolute;left:-6px;right:-6px;bottom:-4px;height:6px;
-    background:rgba(245,158,11,0.25);
-    border-radius:6px;
-    animation:ncPulse 1.4s ease-in-out infinite;
-  }
-  @keyframes ncPulse{
-    0%,100%{opacity:.3}
-    50%{opacity:.9}
-  }
-.about {
+#about .about-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: start;
 }
 
-.about-photo img {
+#about .about-photo {
   width: 100%;
-  height: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  object-position: center top;
 }
 
-.about-box {
+#about .about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+#about .about-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  #about .about-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  #about .about-photo {
+    max-width: 320px;
+    margin: 0 auto 20px;
+  }
 }
