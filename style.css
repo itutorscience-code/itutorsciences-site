@@ -1439,10 +1439,11 @@ header .logo img{
   }
 }
 .about {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
+
 
 .about-photo img {
   width: auto;
@@ -1450,7 +1451,6 @@ header .logo img{
   max-height: 420px;
   object-fit: contain;
   object-position: center top;
-
 }
 
 .about-box {
@@ -1458,9 +1458,5 @@ header .logo img{
   flex-direction: column;
   justify-content: center;
   flex: 1;
-.about-photo, .about-box { flex: 1 1 0 !important; width: 0 !important; }
-
-
-
 }
 
