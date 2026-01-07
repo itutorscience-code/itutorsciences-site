@@ -253,4 +253,33 @@ label.full{grid-column:1/-1}
   .hero-text{margin-left:0}
 }
 
+/* ===== ABOUT: FINAL OVERRIDE (do not edit above this) ===== */
+#about .about-wrap{
+  display:grid !important;
+  grid-template-columns: 360px 1fr !important;
+  gap: 32px !important;
+  align-items: start !important;
+}
+
+#about .about-photo{
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #f3f6f8 !important;
+
+  /* kill all square / crop rules */
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#about .about-photo img{
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 520px !important;
+
+  /* NO CROPPIN*
 
