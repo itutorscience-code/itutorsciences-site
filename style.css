@@ -357,7 +357,7 @@ label.full{grid-column:1/-1}
 }
 /* ===== Increase main menu font size only ===== */
 .header .nav nav a{
-  font-size: 18px !important;
+  font-size: 20px !important;
 }
 
 
