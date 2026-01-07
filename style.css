@@ -321,5 +321,39 @@ label.full{grid-column:1/-1}
   margin-top:0 !important;
   padding-top:0 !important;
 }
+/* ===== STRONGER Nursing Chemistry highlight ===== */
+@keyframes navPulseStrong {
+  0% {
+    color: #FFD54F;
+    text-shadow: 0 0 6px rgba(255,213,79,.6);
+    transform: scale(1);
+    opacity: .8;
+  }
+  50% {
+    color: #FFB300;
+    text-shadow: 0 0 14px rgba(255,179,0,.9);
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    color: #FFD54F;
+    text-shadow: 0 0 6px rgba(255,213,79,.6);
+    transform: scale(1);
+    opacity: .8;
+  }
+}
+
+.header .nav nav a[href*="nursing"]{
+  animation: navPulseStrong 1.8s ease-in-out infinite !important;
+  font-weight:900 !important;
+}
+
+/* Accessibility: stop flashing if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .header .nav nav a[href*="nursing"]{
+    animation:none !important;
+    color:#FFB300 !important;
+  }
+}
 
 
