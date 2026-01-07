@@ -281,5 +281,45 @@ label.full{grid-column:1/-1}
   .hero-text{margin-left:0}
   .brand img{transform:scale(1.2);transform-origin:left center;}
 }
+/* ===== FIX 1: Nursing Chemistry flashes (works with your existing markup) ===== */
+@keyframes navPulse {
+  0%,100% { transform: scale(1); opacity: .75; }
+  50%     { transform: scale(1.07); opacity: 1; }
+}
+
+.header .nav nav a[href*="nursing"]{
+  color:#F59E0B !important;
+  font-weight:800 !important;
+  display:inline-block;
+  animation: navPulse 2.6s ease-in-out infinite;
+  transform-origin:center;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .header .nav nav a[href*="nursing"]{ animation:none !important; }
+}
+
+/* ===== FIX 2: Stop logo/header from sitting on top of the hero ===== */
+/* Make sure the sticky header reserves its own height */
+.header .nav{
+  height:auto !important;
+  align-items:center !important;
+}
+
+/* Remove scaling-caused overlap behavior by sizing the logo normally */
+.brand img{
+  transform:none !important;        /* IMPORTANT: prevents overlap */
+  max-height:192px !important;      /* ~50% bigger than 128px */
+  height:auto !important;
+  width:auto !important;
+  display:block;
+}
+
+/* Ensure the hero starts BELOW the sticky header */
+.hero{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
 
 
