@@ -332,6 +332,17 @@ label.full{grid-column:1/-1}
   .about-photo img{
     height: auto !important; /* don’t force height on stacked layout */
   }
+  /* === Fix: stop About photo from growing too tall === */
+#about .about-photo,
+.about-photo{
+  max-height: 420px !important;   /* try 380–460px */
+}
+
+#about .about-photo img,
+.about-photo img{
+  max-height: 420px !important;
+}
+
 }
 
 
