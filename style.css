@@ -91,11 +91,13 @@ body{
 
 /* ================= ABOUT (FINAL & STABLE) ================= */
 
+/* ================= ABOUT (BOTTOM-ALIGNED FIX) ================= */
+
 .about-wrap{
   display:grid;
-  grid-template-columns: 1fr 1fr;   /* same width */
-  gap:20px;                         /* tighter gap */
-  align-items:stretch;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+  align-items:stretch; /* KEY FIX */
 }
 
 /* PHOTO CARD */
@@ -104,14 +106,15 @@ body{
   overflow:hidden;
   background:#f3f6f8;
   border:1px solid var(--line);
+  display:flex;                 /* KEY FIX */
 }
 
 .about-photo img{
   width:100%;
-  height:100%;
+  height:100%;                  /* KEY FIX */
   display:block;
   object-fit:cover;
-  object-position:center 15%; /* prevents head crop */
+  object-position:center 12%;   /* keeps head visible */
 }
 
 /* TEXT CARD */
@@ -120,6 +123,9 @@ body{
   border-radius:16px;
   padding:24px;
   background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;       /* keeps text vertically balanced */
 }
 
 .about-box h2{
