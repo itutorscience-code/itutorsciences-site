@@ -79,7 +79,7 @@ body{
 
 .section{
   padding:50px 18px;
-  max-width:1200px;
+  max-width:1100px;
   margin:0 auto;
 }
 
@@ -89,51 +89,48 @@ body{
   color:var(--green);
 }
 
-/* ================= ABOUT (FINAL, LOCKED) ================= */
+/* ================= ABOUT (FINAL & STABLE) ================= */
 
 .about-wrap{
   display:grid;
-  grid-template-columns: 420px 420px;
-  gap:24px;
-  justify-content:center;
-  align-items:start;
+  grid-template-columns: 1fr 1fr;   /* same width */
+  gap:20px;                         /* tighter gap */
+  align-items:stretch;
 }
 
-/* IMAGE BOX */
+/* PHOTO CARD */
 .about-photo{
-  width:100%;
-  border-radius:18px;
+  border-radius:16px;
   overflow:hidden;
   background:#f3f6f8;
   border:1px solid var(--line);
 }
 
-/* IMAGE ITSELF — NEVER CROPPED */
 .about-photo img{
   width:100%;
-  height:auto;
+  height:100%;
   display:block;
-  object-fit:contain;
+  object-fit:cover;
+  object-position:center 15%; /* prevents head crop */
 }
 
-/* TEXT BOX */
+/* TEXT CARD */
 .about-box{
-  width:100%;
-  border-radius:18px;
   border:1px solid var(--line);
-  padding:32px 36px;
+  border-radius:16px;
+  padding:24px;
   background:#fff;
 }
 
 .about-box h2{
-  font-size:36px;
-  margin:0 0 18px;
+  font-size:32px;
+  margin:0 0 16px;
 }
 
 .about-box p{
-  font-size:18.5px;
-  line-height:1.85;
   margin:0;
+  font-size:20px;
+  line-height:1.85;
 }
 
 /* ================= HOW / CARDS ================= */
@@ -240,8 +237,6 @@ input,textarea{
 
 label.full{grid-column:1/-1}
 
-/* ================= FOOTER ================= */
-
 .footer{
   padding:20px;
   text-align:center;
@@ -255,18 +250,20 @@ label.full{grid-column:1/-1}
 @media (max-width:900px){
   .about-wrap{
     grid-template-columns:1fr;
-    gap:28px;
   }
 
-  .about-photo,
-  .about-box{
+  .about-photo{
     max-width:420px;
-    margin:0 auto;
+    margin:0 auto 16px;
   }
 
+  .about-photo img{
+    height:auto;
+  }
+
+  .band-wrap{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
   .row{grid-template-columns:1fr}
-  .band-wrap{grid-template-columns:1fr}
   .hero blockquote{font-size:32px}
 }
 
@@ -274,64 +271,4 @@ label.full{grid-column:1/-1}
   .brand{margin-left:0}
   .hero-text{margin-left:0}
 }
-/* ===== ABOUT: image inside text box (FINAL FIX) ===== */
 
-.about-wrap{
-  display:flex;
-  justify-content:center;
-}
-
-.about-box{
-  display:grid;
-  grid-template-columns: 360px 1fr;
-  gap:32px;
-  align-items:start;
-
-  max-width:900px;
-  width:100%;
-  padding:32px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#fff;
-}
-
-/* Image now lives visually inside the box */
-.about-photo{
-  width:100%;
-  border-radius:14px;
-  overflow:hidden;
-  background:#f3f6f8;
-}
-
-/* Never crop the head */
-.about-photo img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-/* Text spacing stays exactly like your good version */
-.about-box h2{
-  font-size:36px;
-  margin:0 0 18px;
-}
-
-.about-box p{
-  font-size:18.5px;
-  line-height:1.85;
-  margin:0;
-}
-
-/* Mobile */
-@media (max-width:900px){
-  .about-box{
-    grid-template-columns:1fr;
-    padding:24px;
-  }
-
-  .about-photo{
-    max-width:320px;
-    margin:0 auto;
-  }
-}
