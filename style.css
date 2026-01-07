@@ -277,4 +277,61 @@ label.full{grid-column:1/-1}
   .brand{margin-left:0}
   .hero-text{margin-left:0}
 }
+/* ===== ABOUT OVERRIDE (paste at VERY END of style.css) ===== */
+
+/* Make the two boxes the SAME height */
+#about .about-wrap,
+.about-wrap{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+  align-items: stretch !important; /* <-- bottom alignment fix */
+}
+
+/* Photo card must stretch */
+#about .about-photo,
+.about-photo{
+  display: flex !important;
+  align-items: stretch !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #f3f6f8 !important;
+  border: 1px solid var(--line) !important;
+}
+
+/* Image must fill the card height */
+#about .about-photo img,
+.about-photo img{
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center 12% !important; /* <-- shows more head */
+}
+
+/* Text card stretches too */
+#about .about-box,
+.about-box{
+  height: 100% !important;
+}
+
+/* Mobile: stack */
+@media (max-width: 900px){
+  #about .about-wrap,
+  .about-wrap{
+    grid-template-columns: 1fr !important;
+  }
+
+  #about .about-photo,
+  .about-photo{
+    max-width: 420px !important;
+    margin: 0 auto 20px !important;
+  }
+
+  #about .about-photo img,
+  .about-photo img{
+    height: auto !important; /* don’t force height on stacked layout */
+  }
+}
+
 
