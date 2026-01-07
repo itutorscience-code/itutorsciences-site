@@ -355,5 +355,10 @@ label.full{grid-column:1/-1}
     color:#FFB300 !important;
   }
 }
+/* ===== Increase main menu font size only ===== */
+.header .nav nav a{
+  font-size: 18px !important;
+}
+
 
 
