@@ -317,6 +317,16 @@ nav a[href="/nursing-chemistry/"]{
     white-space:normal;
     margin-top:8px;
   }
+  /* ===== WIDEN PAGE CONTENT (reduces blank sides) ===== */
+.section{
+  max-width: 1400px;   /* try 1300–1600 */
+}
+
+/* Optional: let About use the wider width too */
+#about.section{
+  max-width: 1400px;
+}
+
 }
 
 
