@@ -54,5 +54,221 @@ body{
   align-items:flex-start;
 }
 
-.hero-text
+.hero-text{
+  padding:40px 18px 0 18px;
+  max-width:780px;
+  margin-left:2cm;
+}
+
+.hero blockquote{
+  color:#fff;
+  font-size:40px;
+  line-height:1.14;
+  margin:0;
+  text-shadow:0 3px 16px rgba(0,0,0,.35);
+}
+
+.cite{
+  color:#fff;
+  margin-top:10px;
+  font-weight:700;
+  text-shadow:0 3px 16px rgba(0,0,0,.35);
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+  padding:50px 18px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.section h2{
+  font-size:28px;
+  margin:0 0 16px;
+  color:var(--green);
+}
+
+/* ================= ABOUT (FINAL) ================= */
+
+.about-wrap{
+  display:grid;
+  grid-template-columns: 340px minmax(0,1fr);
+  gap:40px;
+  align-items:center;
+}
+
+.about-photo{
+  width:100%;
+  max-width:340px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#f3f6f8;
+  border:1px solid var(--line);
+}
+
+.about-photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.about-box{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:28px 32px;
+  box-sizing:border-box;
+}
+
+.about-box h2{
+  font-size:34px;
+  margin:0 0 18px;
+}
+
+.about-box p{
+  font-size:18px;
+  line-height:1.8;
+  margin:0;
+}
+
+/* ================= HOW / CARDS ================= */
+
+.how-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.how-item{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+}
+
+.price{font-weight:900}
+
+/* ================= BANDS ================= */
+
+.band{padding:56px 18px}
+.band-green{background:var(--green);color:#fff}
+
+.band-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:24px;
+  align-items:center;
+}
+
+.band-title{
+  font-size:40px;
+  font-weight:900;
+}
+
+.band-quote{
+  font-size:20px;
+  line-height:1.5;
+}
+
+/* ================= FORMS ================= */
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:#0b1220;
+  font-weight:700;
+}
+
+.btn.primary{
+  background:var(--green);
+  border-color:var(--green);
+  color:#fff;
+}
+
+.form{
+  display:grid;
+  gap:12px;
+  max-width:900px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+label{
+  display:grid;
+  gap:6px;
+  font-weight:700;
+}
+
+input,textarea{
+  font:inherit;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+
+label.full{grid-column:1/-1}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  padding:20px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  color:#64748b;
+  margin-top:30px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:900px){
+  .about-wrap{
+    grid-template-columns:1fr;
+    align-items:start;
+  }
+
+  .about-photo{
+    max-width:300px;
+    margin:0 auto 22px;
+  }
+
+  .band-wrap{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .hero blockquote{font-size:32px}
+}
+
+@media (max-width:640px){
+  .brand{margin-left:0}
+  .hero-text{margin-left:0}
+}
+
 
