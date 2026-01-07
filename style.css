@@ -1458,6 +1458,8 @@ header .logo img{
   flex-direction: column;
   justify-content: center;
   flex: 1;
+  .about > * { flex: 1; }
+
 
 }
 
