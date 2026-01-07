@@ -31,10 +31,12 @@ body{
   padding:10px 18px;
 }
 
-.brand{margin-left:2cm}
+.brand{ margin-left:2cm; }
 .brand img{
   height:auto;
   max-height:128px;
+  width:auto;
+  display:block;
 }
 
 .nav nav a{
@@ -89,54 +91,54 @@ body{
   color:var(--green);
 }
 
-/* ================= ABOUT (FINAL & STABLE) ================= */
+/* ================= ABOUT (FINAL) ================= */
+/* Goal:
+   - photo stays SQUARE (not huge)
+   - text box is rectangular but SAME WIDTH as photo column
+   - smaller gap between them
+   - head not cut off
+*/
 
-/* ================= ABOUT (BOTTOM-ALIGNED FIX) ================= */
-
-.about-wrap{
+#about .about-wrap{
   display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:20px;
-  align-items:stretch; /* KEY FIX */
+  grid-template-columns: minmax(320px, 420px) minmax(320px, 420px);
+  gap:22px;
+  align-items:start;
+  justify-content:center;
 }
 
-/* PHOTO CARD */
-.about-photo{
+/* Photo container stays square */
+#about .about-photo{
+  width:100%;
+  aspect-ratio: 1 / 1;
   border-radius:16px;
   overflow:hidden;
   background:#f3f6f8;
   border:1px solid var(--line);
-  display:flex;                 /* KEY FIX */
 }
 
-.about-photo img{
+/* Image fills square; shift framing up so head isn't cut */
+#about .about-photo img{
   width:100%;
-  height:100%;                  /* KEY FIX */
+  height:100%;
   display:block;
   object-fit:cover;
-  object-position:center 12%;   /* keeps head visible */
+  object-position:center 12%;
 }
 
-/* TEXT CARD */
-.about-box{
+/* Text box same width as the photo column */
+#about .about-box{
+  width:100%;
   border:1px solid var(--line);
   border-radius:16px;
-  padding:24px;
   background:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;       /* keeps text vertically balanced */
+  padding:18px;
+  box-sizing:border-box;
 }
 
-.about-box h2{
-  font-size:32px;
-  margin:0 0 16px;
-}
-
-.about-box p{
+#about .about-box p{
   margin:0;
-  font-size:20px;
-  line-height:1.85;
+  line-height:1.7;
 }
 
 /* ================= HOW / CARDS ================= */
@@ -167,7 +169,7 @@ body{
 
 .price{font-weight:900}
 
-/* ================= BANDS ================= */
+/* ================= BANDS / TESTIMONIALS ================= */
 
 .band{padding:56px 18px}
 .band-green{background:var(--green);color:#fff}
@@ -181,15 +183,8 @@ body{
   align-items:center;
 }
 
-.band-title{
-  font-size:40px;
-  font-weight:900;
-}
-
-.band-quote{
-  font-size:20px;
-  line-height:1.5;
-}
+.band-title{font-size:40px;font-weight:900}
+.band-quote{font-size:20px;line-height:1.5}
 
 /* ================= FORMS ================= */
 
@@ -251,20 +246,46 @@ label.full{grid-column:1/-1}
   margin-top:30px;
 }
 
-/* ================= MOBILE ================= */
+/* ================= NAV HIGHLIGHT (Nursing Chemistry) ================= */
+
+@keyframes navPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.07)} }
+
+header nav a[href="/nursing-chemistry"],
+header nav a[href="/nursing-chemistry/"],
+nav a[href="/nursing-chemistry"],
+nav a[href="/nursing-chemistry/"]{
+  color:#F59E0B !important;
+  font-weight:800;
+  position:relative;
+  display:inline-block;
+  animation:navPulse 2.6s ease-in-out infinite;
+  transform-origin:center;
+}
+
+@media (prefers-reduced-motion: reduce){
+  header nav a[href="/nursing-chemistry"],
+  header nav a[href="/nursing-chemistry/"],
+  nav a[href="/nursing-chemistry"],
+  nav a[href="/nursing-chemistry/"]{
+    animation:none;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width:900px){
-  .about-wrap{
+  /* About stacks on mobile */
+  #about .about-wrap{
     grid-template-columns:1fr;
+    justify-content:stretch;
   }
-
-  .about-photo{
-    max-width:420px;
+  #about .about-photo{
+    max-width:360px;
     margin:0 auto 16px;
   }
-
-  .about-photo img{
-    height:auto;
+  #about .about-box{
+    max-width:560px;
+    margin:0 auto;
   }
 
   .band-wrap{grid-template-columns:1fr}
@@ -277,72 +298,26 @@ label.full{grid-column:1/-1}
   .brand{margin-left:0}
   .hero-text{margin-left:0}
 }
-/* ===== ABOUT OVERRIDE (paste at VERY END of style.css) ===== */
 
-/* Make the two boxes the SAME height */
-#about .about-wrap,
-.about-wrap{
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 20px !important;
-  align-items: stretch !important; /* <-- bottom alignment fix */
-}
-
-/* Photo card must stretch */
-#about .about-photo,
-.about-photo{
-  display: flex !important;
-  align-items: stretch !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  background: #f3f6f8 !important;
-  border: 1px solid var(--line) !important;
-}
-
-/* Image must fill the card height */
-#about .about-photo img,
-.about-photo img{
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  object-fit: cover !important;
-  object-position: center 12% !important; /* <-- shows more head */
-}
-
-/* Text card stretches too */
-#about .about-box,
-.about-box{
-  height: 100% !important;
-}
-
-/* Mobile: stack */
-@media (max-width: 900px){
-  #about .about-wrap,
-  .about-wrap{
-    grid-template-columns: 1fr !important;
+/* Testimonials band: prevent clipping on small screens */
+@media (max-width:640px){
+  .band-wrap{
+    grid-template-columns:1fr !important;
+    row-gap:12px;
+    align-items:start !important;
   }
-
-  #about .about-photo,
-  .about-photo{
-    max-width: 420px !important;
-    margin: 0 auto 20px !important;
+  .band-title{font-size:28px}
+  .band-quote{
+    font-size:16px;
+    line-height:1.5;
+    white-space:normal;
   }
-
-  #about .about-photo img,
-  .about-photo img{
-    height: auto !important; /* don’t force height on stacked layout */
+  .band .cite{
+    display:block;
+    white-space:normal;
+    margin-top:8px;
   }
-  /* === Fix: stop About photo from growing too tall === */
-#about .about-photo,
-.about-photo{
-  max-height: 420px !important;   /* try 380–460px */
 }
 
-#about .about-photo img,
-.about-photo img{
-  max-height: 420px !important;
-}
-
-}
 
 
