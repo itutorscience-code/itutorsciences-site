@@ -79,7 +79,7 @@ body{
 
 .section{
   padding:50px 18px;
-  max-width:1100px;
+  max-width:1200px;
   margin:0 auto;
 }
 
@@ -89,24 +89,26 @@ body{
   color:var(--green);
 }
 
-/* ================= ABOUT (FINAL) ================= */
+/* ================= ABOUT (FINAL, LOCKED) ================= */
 
 .about-wrap{
   display:grid;
-  grid-template-columns: 340px minmax(0,1fr);
-  gap:40px;
-  align-items:center;
+  grid-template-columns: 420px 420px;
+  gap:24px;
+  justify-content:center;
+  align-items:start;
 }
 
+/* IMAGE BOX */
 .about-photo{
   width:100%;
-  max-width:340px;
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   background:#f3f6f8;
   border:1px solid var(--line);
 }
 
+/* IMAGE ITSELF — NEVER CROPPED */
 .about-photo img{
   width:100%;
   height:auto;
@@ -114,22 +116,23 @@ body{
   object-fit:contain;
 }
 
+/* TEXT BOX */
 .about-box{
   width:100%;
+  border-radius:18px;
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:28px 32px;
-  box-sizing:border-box;
+  padding:32px 36px;
+  background:#fff;
 }
 
 .about-box h2{
-  font-size:34px;
+  font-size:36px;
   margin:0 0 18px;
 }
 
 .about-box p{
-  font-size:18px;
-  line-height:1.8;
+  font-size:18.5px;
+  line-height:1.85;
   margin:0;
 }
 
@@ -252,17 +255,18 @@ label.full{grid-column:1/-1}
 @media (max-width:900px){
   .about-wrap{
     grid-template-columns:1fr;
-    align-items:start;
+    gap:28px;
   }
 
-  .about-photo{
-    max-width:300px;
-    margin:0 auto 22px;
+  .about-photo,
+  .about-box{
+    max-width:420px;
+    margin:0 auto;
   }
 
-  .band-wrap{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
   .row{grid-template-columns:1fr}
+  .band-wrap{grid-template-columns:1fr}
   .hero blockquote{font-size:32px}
 }
 
@@ -270,5 +274,3 @@ label.full{grid-column:1/-1}
   .brand{margin-left:0}
   .hero-text{margin-left:0}
 }
-
-
