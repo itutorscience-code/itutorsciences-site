@@ -1,42 +1,118 @@
 
 :root{--royal:#4A8BDF;--green:#0E7A57;--light:#B2E0B5;--ink:#0f172a;--muted:#475569;--line:#E7EBF0}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff}
-.header .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
-.brand{margin-left:2cm}.brand img{height:128px}
+
+/* Header / Nav */
+.header .nav{
+  position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;padding:10px 18px
+}
+.brand{margin-left:2cm}
+.brand img{height:auto !important;max-height:138px !important;width:auto}
+
+/* Desktop nav links */
 .nav nav a{margin:0 10px;text-decoration:none;color:#0b1220;font-weight:900}
+
+/* Hero */
 .hero{height:64vh;min-height:420px;background:url('assets/Untitled design (2).jpg') center bottom/cover no-repeat;display:flex;align-items:flex-start}
 .hero-text{padding:40px 18px 0 18px;max-width:780px;margin-left:2cm}
 .hero blockquote{color:#fff;font-size:40px;line-height:1.14;margin:0;text-shadow:0 3px 16px rgba(0,0,0,.35)}
 .cite{color:#fff;margin-top:10px;font-weight:700;text-shadow:0 3px 16px rgba(0,0,0,.35)}
+
+/* Sections */
 .section{padding:50px 18px;max-width:1100px;margin:0 auto}
 .section h2{font-size:28px;margin:0 0 16px;color:var(--green)}
-.about-wrap{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
-.about-photo{background:#f3f6f8;border:1px dashed var(--line);border-radius:12px;aspect-ratio:1/1}
-.about-box{border:1px solid var(--line);border-radius:12px;padding:16px}
+
+/* ABOUT (final, clean) */
+.about-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:start;
+}
+.about-photo{
+  width:100%;
+  border-radius:12px;
+  overflow:hidden;
+  background:#f3f6f8;
+  border:1px solid var(--line);
+}
+.about-photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+.about-box{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:100%;
+}
 .about-box p{margin:0;line-height:1.7}
+
+/* How / cards */
 .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .how-item{border:1px solid var(--line);border-radius:12px;padding:16px}
-.band{padding:56px 18px}.band-green{background:var(--green);color:#fff}
+.band{padding:56px 18px}
+.band-green{background:var(--green);color:#fff}
 .band-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
-.band-title{font-size:40px;font-weight:900}.band-quote{font-size:20px;line-height:1.5}
+.band-title{font-size:40px;font-weight:900}
+.band-quote{font-size:20px;line-height:1.5}
+
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .card{border:1px solid var(--line);border-radius:12px;padding:16px}
 .price{font-weight:900}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:#0b1220;font-weight:700}
 .btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.disabled{opacity:.45;pointer-events:none}
 .small{color:#6b7280}
 .note{margin-top:8px;color:var(--muted)}
 .pill-row{display:flex;flex-wrap:wrap;gap:8px}
 .pill{border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#f8fafc}
+
 .form{display:grid;gap:12px;max-width:900px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 label{display:grid;gap:6px;font-weight:700}
 input,textarea{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px}
 label.full{grid-column:1/-1}
 .alt-contact{margin-top:10px;color:#64748b}
+
 .footer{padding:20px;text-align:center;border-top:1px solid var(--line);color:#64748b;margin-top:30px}
+
+/* Highlight Nursing Chemistry in nav (if present) */
+@keyframes navPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+header nav a[href="/nursing-chemistry"],
+header nav a[href="/nursing-chemistry/"],
+nav a[href="/nursing-chemistry"],
+nav a[href="/nursing-chemistry/"]{
+  color:#F59E0B !important;
+  font-weight:800;
+  position:relative;
+  display:inline-block;
+  animation:navPulse 2.6s ease-in-out infinite;
+  transform-origin:center;
+}
+@media (prefers-reduced-motion: reduce){
+  header nav a[href="/nursing-chemistry"],
+  header nav a[href="/nursing-chemistry/"],
+  nav a[href="/nursing-chemistry"],
+  nav a[href="/nursing-chemistry/"]{animation:none}
+}
+
+/* NAV font-weight normalizer (keeps everything even) */
+.nav nav a,
+.nav nav a:link,
+.nav nav a:visited{font-weight:600 !important;text-decoration:none}
+.nav nav a strong{font-weight:inherit !important}
+
+/* Responsive */
 @media (max-width:900px){
   .about-wrap{grid-template-columns:1fr}
   .band-wrap{grid-template-columns:1fr}
@@ -44,1370 +120,65 @@ label.full{grid-column:1/-1}
   .row{grid-template-columns:1fr}
   .hero blockquote{font-size:32px}
 }
-.btn.disabled{opacity:.45;pointer-events:none}
-@keyframes navPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.07)} }
 
-/* Highlight only the  page link in the navbar */
-header nav a[href="/nursing-chemistry"],
-header nav a[href="/nursing-chemistry/"],
-header nav a[href="/nursing-chemistry"],
-nav a[href="/nursing-chemistry"],
-nav a[href="/nursing-chemistry/"],
-nav a[href="/nursing-chemistry"]{
-  color: #F59E0B !important;
-  font-weight:800;
-  position:relative;
-  display:inline-block;
-  animation:navPulse 2.6s ease-in-out infinite;
-  transform-origin:center;
-}
+/* Mobile header (ONE final version) */
+@media (max-width:640px){
+  .brand{margin-left:8px}
+  .brand img{max-height:96px !important}
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce){
-  header nav a[href="/nursing-chemistry"],
-  header nav a[href="/nursing-chemistry/"],
-  header nav a[href="/nursing-chemistry"],
-  nav a[href="/nursing-chemistry"],
-  nav a[href="/nursing-chemistry/"],
-  nav a[href="/nursing-chemistry"]{ animation:none; }
-}
-/* Make the header logo a bit larger */
-header .logo img{
-  max-height: 92px !important;  /* try 84–96px to taste */
-  height: auto;
-  width: auto;
-}
-
-/* Keep it reasonable on small screens */
-@media (max-width: 600px){
-  header .logo img{ max-height: 64px !important; }
-}
-
-/* === v-logo-fix: adjust header logo size === */
-.brand img{
-  height: auto !important;      
-  max-height: 138px !important;   /* was 92px */
-}
-@media (max-width: 600px){
-  .brand img{ max-height: 64px !important; }
-}
-
-/* === Mobile header cleanup (does not affect desktop) === */
-@media (max-width: 640px){
-  /* stack logo and menu with spacing */
-  header .container, header .wrap, header .nav{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* make the logo comfy on phones */
-  .brand img{ max-height: 60px !important; }
-
-  /* spread the links nicely in 2 rows if needed */
-  header nav{ width: 100%; }
-  header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 14px;
-    margin: 0;
-    padding: 0;
-  }
-  header nav li{ list-style: none; }
-  header nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;            /* slightly smaller on mobile */
-    line-height: 1.2;
-  }
-}
-
-/* === Mobile header: bigger logo, aligned left (desktop unaffected) === */
-@media (max-width: 640px){
-  /* stack header items but align to the left */
-  header .container,
-  header .wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;   /* left-align the block */
-    gap: 10px;
-  }
-
-  /* logo bigger + left */
-  .brand{ align-self: flex-start; margin-left: 8px; }
-  .brand img{ max-height: 85px !important; }  /* try 72–80px to taste */
-
-  /* keep the menu centered under the logo */
-  header nav{ width: 100%; }
-  header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;   /* center the links */
-    gap: 8px 14px;
-    margin: 0;
-    padding: 0;
-  }
-  header nav li{ list-style: none; }
-  header nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left, same height as multi-line nav (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Put logo and nav on one row, and make the row match the tallest child (the nav) */
-  header .wrap, header .container{
-    display: flex;
-    align-items: stretch;   /* children stretch to the row height */
-    gap: 10px;
-  }
-
-  /* Logo block on the left */
-  .brand{
-    display: flex;          /* so the image can center inside */
-    align-items: center;
-    flex: 0 0 auto;
-    margin-left: 8px;
-  }
-
-  /* Make the logo as tall as the row (i.e., as tall as the multi-line nav) */
-  .brand img{
-    height: 100% !important;  /* fills the row height */
-    width: auto;
-    max-height: 120px;         /* safety cap; raise/lower to taste */
-  }
-
-  /* Nav takes the remaining width on the right and wraps cleanly */
-  header nav{
-    flex: 1 1 auto;
-  }
-  header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 8px 12px;
-    margin: 0;
-    padding: 4px 0;
-  }
-  header nav li{ list-style: none; }
-  header nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-
-/* === Mobile header: logo left, same height as multi-line nav (class-based selectors) === */
-@media (max-width: 640px){
-  /* Put logo (.brand) and nav on one row; row height = tallest child (the wrapped nav) */
   .header .nav{
-    display: flex;
-    align-items: stretch;   /* children stretch to the row height */
-    gap: 10px;
-  }
-
-  /* Logo block on the left */
-  .header .brand{
-    display: flex;          /* center the image within the block */
-    align-items: center;
-    flex: 0 0 auto;
-    margin-left: 8px;       /* override the desktop 2cm margin */
-  }
-
-  /* Make the logo as tall as the row (i.e., as tall as the multi-line nav) */
-  .header .brand img{
-    height: 100% !important;  /* fills the row height */
-    width: auto;
-    max-height: 140px;         /* safety cap; tweak 110–150px to taste */
-  }
-
-  /* Nav takes remaining width and wraps cleanly */
-  .header .nav > nav{
-    flex: 1 1 auto;
-    width: auto;
-  }
-  .header .nav > nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 8px 12px;
-    margin: 0;
-    padding: 4px 0;
-  }
-  .header .nav > nav li{ list-style: none; }
-  .header .nav > nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header fix (logo left, nav to the right; desktop unaffected) === */
-@media (max-width: 640px){
-  /* Put logo and nav in two columns; nav can wrap to multiple lines */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr; /* logo | nav */
-    align-items: center;
-    column-gap: 12px;
-  }
-
-  /* Logo column */
-  .header .brand{
-    grid-column: 1;
-    align-self: stretch;           /* match nav's height */
-    display: flex;
-    align-items: center;           /* center the image in the available height */
-    margin-left: 8px !important;   /* override big desktop margin on phones */
-  }
-  .header .brand img{
-    height: auto !important;
-    max-height: 80px !important;   /* adjust 72–90px to taste */
-    width: auto;
-  }
-
-  /* Nav column (wraps to multiple rows) */
-  .header .nav > nav{
-    grid-column: 2;
-    width: 100%;
-  }
-  .header .nav > nav ul{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px 12px;
-    margin: 0;
-    padding: 4px 0;
-    justify-content: flex-start;
-  }
-  .header .nav > nav li{ list-style: none; }
-  .header .nav > nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: bigger logo, top-aligned with nav (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Put logo (left) and nav (right) in two columns; top-align both */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;   /* << top-align */
-  }
-
-  /* Logo block (left) */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;    /* << top-align */
-    margin-left: 8px !important;
-    padding-top: 3px;                /* nudge: tweak 0–6px if needed */
-  }
-  .header .brand img{
-    display: block;                  /* removes inline-img baseline gap */
-    height: auto !important;
-    max-height: 108px !important;    /* bigger logo; try 108–112px if you want more */
-    width: auto;
-  }
-
-  /* Nav block (right) */
-  .header .nav > nav{
-    grid-column: 2;
-    align-self: start !important;    /* << top-align */
-    width: 100%;
-  }
-  .header .nav > nav ul{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px 12px;
-    margin: 0;
-    padding: 0;
-    justify-content: flex-start;
-  }
-  .header .nav > nav li{ list-style: none; }
-  .header .nav > nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: 3-line nav layout + logo left (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Header layout: logo (left) | nav (right) */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr; /* left: logo, right: nav */
-    column-gap: 12px;
-    align-items: start !important;
-  }
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important;
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 104px !important; /* adjust 96–112px to taste */
-    width: auto;
-  }
-
-  /* Nav block (wrap items across 3 rows in a fixed pattern) */
-  .header .nav > nav{
-    grid-column: 2;
-    width: 100%;
-  }
-  .header .nav > nav ul{
-    display: grid !important;
-    grid-auto-flow: column;          /* fill across columns */
-    grid-auto-columns: max-content;  /* each item fits its text */
-    grid-template-rows: auto auto auto; /* 3 rows */
-    gap: 8px 12px;
-    margin: 0;
-    padding: 0;
-    justify-content: start;
-    align-items: start;
-  }
-  .header .nav > nav li{ list-style: none; }
-
-  /* Place specific items by their order in the list:
-     1–3 -> row 1, 4–6 -> row 2, 7 -> row 3 */
-  .header .nav > nav li:nth-child(1),
-  .header .nav > nav li:nth-child(2),
-  .header .nav > nav li:nth-child(3){ grid-row: 1; }
-
-  .header .nav > nav li:nth-child(4),
-  .header .nav > nav li:nth-child(5),
-  .header .nav > nav li:nth-child(6){ grid-row: 2; }
-
-  .header .nav > nav li:nth-child(7){ grid-row: 3; }
-
-  /* Tidy link sizing on mobile */
-  .header .nav > nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === FINAL mobile header: logo left + 3-line nav (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Header row: logo (left) | nav (right) */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;  /* top-align logo with nav text */
-  }
-
-  /* Logo column */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important;    /* override the 2cm desktop margin */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important;   /* adjust 104–120px to taste */
-    width: auto;
-  }
-
-  /* Nav column */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-  }
-  .header .nav nav ul{
-    display: grid !important;
-    grid-auto-flow: column !important;          /* fill across columns */
-    grid-auto-columns: max-content !important;  /* each item fits its text */
-    grid-template-rows: auto auto auto !important; /* 3 rows */
-    gap: 8px 12px;
-    margin: 0;
-    padding: 0;
-    justify-content: start;
-    align-items: start;
-  }
-  .header .nav nav li{ list-style: none; }
-
-  /* Force items into rows by order:
-     1–3 -> row 1; 4–6 -> row 2; 7 -> row 3 (alone) */
-  .header .nav nav li:nth-child(1),
-  .header .nav nav li:nth-child(2),
-  .header .nav nav li:nth-child(3){ grid-row: 1 !important; }
-
-  .header .nav nav li:nth-child(4),
-  .header .nav nav li:nth-child(5),
-  .header .nav nav li:nth-child(6){ grid-row: 2 !important; }
-
-  .header .nav nav li:nth-child(7){ grid-row: 3 !important; }
-
-  .header .nav nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left + 3-line nav order (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Header layout: logo (left) | nav (right) */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;
-  }
-
-  /* Logo column */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important; /* override big desktop margin */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important; /* tweak 100–120px if you want */
-    width: auto;
-  }
-
-  /* Nav column */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-  }
-
-  /* 3-line grid for the menu, grouped by link destination */
-  .header .nav nav ul{
-    display: grid !important;
-    grid-auto-flow: column !important;           /* fill across columns */
-    grid-auto-columns: max-content !important;   /* tight to text */
-    grid-template-rows: auto auto auto !important; /* 3 rows */
-    gap: 8px 12px;
-    margin: 0;
-    padding: 0;
-    justify-content: start;
-    align-items: start;
-  }
-  .header .nav nav li{ list-style: none; }
-
-  /* Row 1: About, Tutoring, Testimonials */
-  .header .nav nav li:has(> a[href*="about"]){ grid-row: 1 !important; }
-  .header .nav nav li:has(> a[href*="tutoring"]){ grid-row: 1 !important; }
-  .header .nav nav li:has(> a[href*="testimonial"]){ grid-row: 1 !important; }
-
-  /* Row 2: Worksheets, Courses, Contact */
-  .header .nav nav li:has(> a[href*="worksheet"]){ grid-row: 2 !important; }
-  .header .nav nav li:has(> a[href*="course"]){ grid-row: 2 !important; }
-  .header .nav nav li:has(> a[href*="contact"]){ grid-row: 2 !important; }
-
-  /* Row 3: Nursing Chemistry alone */
-  .header .nav nav li:has(> a[href*="-nursing"]){
-    grid-row: 3 !important;
-    grid-column: 1 / -1 !important;  /* span full width so it's alone */
-    justify-self: start;
-  }
-
-  /* Tidy link sizing on mobile */
-  .header .nav nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left + 3-line nav (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Header: logo | nav */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;
-  }
-
-  /* Logo (left) */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important; /* override big desktop margin */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important; /* make it bigger on mobile */
-    width: auto;
-  }
-
-  /* Nav (right) becomes a 3-row grid; items will be assigned by class */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-  }
-  .header .nav nav ul{
-    display: grid !important;
-    grid-auto-flow: column !important;          /* fill across columns */
-    grid-auto-columns: max-content !important;  /* each link fits its text */
-    grid-template-rows: auto auto auto !important; /* 3 rows */
-    gap: 8px 12px;
-    margin: 0;
-    padding: 0;
-    justify-content: start;
-    align-items: start;
-  }
-  .header .nav nav li{ list-style: none; }
-
-  /* Row placement driven by classes added by JS */
-  .header .nav nav li.row1{ grid-row: 1 !important; }
-  .header .nav nav li.row2{ grid-row: 2 !important; }
-  .header .nav nav li.row3{
-    grid-row: 3 !important;
-    grid-column: 1 / -1 !important; /*  spans full width */
-    justify-self: start;
-  }
-
-  .header .nav nav a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left + 3-line nav (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Make the header two columns: logo | nav */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;
-  }
-
-  /* Logo column (left) */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important;   /* override the 2cm desktop margin on phones */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important;  /* adjust 100–120px if you want */
-    width: auto;
-  }
-
-  /* Nav column (right) — your anchors are direct children of <nav> */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-    display: grid !important;
-    grid-auto-flow: column !important;         /* fill across columns */
-    grid-auto-columns: max-content !important; /* each link fits its text */
-    grid-template-rows: auto auto auto !important; /* 3 rows */
-    gap: 8px 12px;
-  }
-
-  /* Put each <a> on the correct row by its position (current order in index.html): 
-     1:About 2:Tutoring 3:Testimonials 4:Worksheets 5:Courses 6: 7:Contact */
-  .header .nav nav > a:nth-child(1),
-  .header .nav nav > a:nth-child(2),
-  .header .nav nav > a:nth-child(3){ grid-row: 1 !important; }
-
-  .header .nav nav > a:nth-child(4),
-  .header .nav nav > a:nth-child(5),
-  .header .nav nav > a:nth-child(7){ grid-row: 2 !important; }
-
-  .header .nav nav > a:nth-child(6){
-    grid-row: 3 !important;
-    grid-column: 1 / -1 !important; /* span full width so it sits alone */
-    justify-self: start;
-  }
-
-  /* Mobile link sizing */
-  .header .nav nav > a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left + 3-line nav by href (desktop unaffected) === */
-@media (max-width: 640px){
-
-  /* Header: two columns => [logo | nav] */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start !important;
-  }
-
-  /* Logo column (left) */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important; /* override big desktop margin on phones */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important; /* adjust to taste */
-    width: auto;
-  }
-
-  /* Nav column (right) becomes a 3-row grid; anchors are direct children of <nav> */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-    display: grid !important;
-    grid-auto-flow: column !important;          /* fill across columns */
-    grid-auto-columns: max-content !important;  /* each link fits its text */
-    grid-template-rows: auto auto auto !important; /* 3 rows */
-    gap: 8px 12px;
-  }
-
-  /* Row 1: About, Tutoring, Testimonials */
-  .header .nav nav > a[href="#about"]{ grid-row: 1 !important; }
-  .header .nav nav > a[href="#tutoring"]{ grid-row: 1 !important; }
-  .header .nav nav > a[href="#testimonials"]{ grid-row: 1 !important; }
-
-  /* Row 2: Worksheets, Courses, Contact */
-  .header .nav nav > a[href="#worksheets"]{ grid-row: 2 !important; }
-  .header .nav nav > a[href="#courses"]{ grid-row: 2 !important; }
-  .header .nav nav > a[href="#contact"]{ grid-row: 2 !important; }
-
-  /* Row 3: Nursing Chemistry alone (your link is -nursing) */
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3 !important;
-    grid-column: 1 / -1 !important; /* span full width so it sits alone */
-    justify-self: start;
-  }
-
-  /* Mobile link sizing */
-  .header .nav nav > a{
-    display: inline-block;
-    padding: 6px 8px;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-}
-/* === Mobile header: logo left + 3-row nav in a fixed rectangle (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Header: two columns => [logo | nav] */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;      /* left: logo, right: menu */
-    column-gap: 12px;
-    align-items: start !important;
-  }
-
-  /* Logo (left) */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 8px !important;          /* override large desktop margin on phones */
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 110px !important;          /* tweak 100–120px to taste */
-    width: auto;
-  }
-
-  /* Nav block (right) becomes a 3-row, 3-column grid inside the available width */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;  /* 3 equal columns */
-    grid-template-rows: auto auto auto !important;                /* 3 rows */
-    gap: 6px 8px;                                                 /* small spacing */
-  }
-
-  /* Make anchors behave like grid cells and never overflow the frame */
-  .header .nav nav > a{
-    display: block;
-    min-width: 0;                 /* allow shrink within the column */
-    padding: 6px 6px;
-    font-size: 15px;
-    line-height: 1.2;
-    white-space: normal;          /* allow wrapping if needed */
-  }
-
-  /* Row 1: About, Tutoring, Testimonials (place by href) */
-  .header .nav nav > a[href="#about"]         { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]      { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"]  { grid-row: 1; grid-column: 3; }
-
-  /* Row 2: Worksheets, Courses, Contact */
-  .header .nav nav > a[href="#worksheets"]    { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]       { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]       { grid-row: 2; grid-column: 3; }
-
-  /* Row 3: Nursing Chemistry takes the whole row */
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3;
-    grid-column: 1 / -1;          /* span all 3 columns */
-    justify-self: start;
-  }
-}
-/* === Mobile header tweaks: tighter logo + no overlap (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Pull logo farther left + reduce gap to menu */
-  .header .brand{ margin-left: 0 !important; }
-  .header .nav{ column-gap: 6px !important; } /* was 12px */
-
-  /* (Optional) tiny logo trim; increase/decrease if you want */
-  .header .brand img{ max-height: 104px !important; }
-
-  /* Keep the 3x3 grid frame for the nav, but make items fit better */
-  .header .nav nav{
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 6px 6px !important; /* tighter spacing */
-  }
-  .header .nav nav > a{
-    display: block;
-    box-sizing: border-box;
-    min-width: 0;
-    padding: 6px 4px;          /* slightly slimmer padding */
-    font-size: 14px;           /* down from 15px to fit “Testimonials” */
-    line-height: 1.2;
-    white-space: normal;
-    overflow-wrap: anywhere;   /* allow breaks if needed */
-  }
-
-  /* Row 1 */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  /* Row 2 */
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  /* Row 3 (alone) */
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3;
-    grid-column: 1 / -1;  /* span all 3 columns */
-    justify-self: start;
-  }
-}
-
-/* Extra-tight fallback for very small phones */
-@media (max-width: 360px){
-  .header .nav nav > a{ font-size: 13px; padding: 5px 4px; }
-  .header .brand img{ max-height: 98px !important; }
-}
-/* === Mobile nav: wrap only at spaces; no mid-word splits (desktop unaffected) === */
-@media (max-width: 640px){
-  .header .nav nav{
-    /* keep the fixed 3x3 rectangle */
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 6px 8px !important;
-    width: 100%;
-  }
-
-  /* Only break at spaces; keep words intact */
-  .header .nav nav > a{
-    white-space: normal !important;
-    overflow-wrap: break-word !important;  /* wrap only at word boundaries */
-    word-break: normal !important;         /* don't break inside words */
-    hyphens: none !important;              /* no auto hyphens */
-    padding: 6px 6px;                      /* small, even padding */
-    font-size: 14px;                       /* adjust if needed */
-    line-height: 1.2;
-  }
-
-  /* Row placement (unchanged) */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3; grid-column: 1 / -1; justify-self: start;
-  }
-}
-
-/* Extra-tight phones */
-@media (max-width: 360px){
-  .header .nav nav > a{ font-size: 13px; }
-}
-/* === Mobile header: logo left + fixed 3-row nav rectangle (desktop unaffected) === */
-@media (max-width: 640px){
-  /* Two columns: [logo | nav] with tighter gap */
-  .header .nav{
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    column-gap: 6px !important;
-    align-items: start !important;
-  }
-
-  /* Logo (left), pulled further left and a bit smaller to give menu room */
-  .header .brand{
-    grid-column: 1;
-    align-self: start !important;
-    margin-left: 0 !important;
-  }
-  .header .brand img{
-    display: block;
-    height: auto !important;
-    max-height: 96px !important;   /* tweak 90–104px if you like */
-    width: auto;
-  }
-
-  /* Nav (right) becomes a fixed 3x3 grid box that never overflows */
-  .header .nav nav{
-    grid-column: 2;
-    width: 100%;
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;  /* 3 equal columns */
-    grid-template-rows: auto auto auto !important;     /* 3 rows */
-    gap: 6px 6px !important;                            /* small spacing */
-    align-content: start;
-  }
-
-  /* Links fit within their cells; wrap at spaces only */
-  .header .nav nav > a{
-    display: block;
-    box-sizing: border-box;
-    min-width: 0;
-    padding: 6px 4px;
-    font-size: 14px;
-    line-height: 1.15;
-    text-align: center;
-    white-space: normal !important;
-    word-break: normal !important;       /* no mid-word splits */
-    overflow-wrap: break-word !important;
-    hyphens: none !important;
-  }
-
-  /* Row/column placement by href (your actual links) */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3;
-    grid-column: 1 / -1;                  /* spans full width, on its own row */
-    justify-self: start;
-  }
-
-  /* Slightly shrink the two longest labels to avoid wrap pressure */
-  .header .nav nav > a[href="#testimonials"],
-  .header .nav nav > a[href="#worksheets"]{ font-size: 13.5px; }
-}
-
-/* Extra-tight phones */
-@media (max-width: 360px){
-  .header .nav nav > a{ font-size: 13px; padding: 5px 4px; }
-  .header .nav nav > a[href="#testimonials"],
-  .header .nav nav > a[href="#worksheets"]{ font-size: 12.5px; }
-}
-/* === Mobile nav: tighter gaps so each word fits on one line (desktop unaffected) === */
-@media (max-width: 640px){
-  /* keep logo | menu layout but reduce the gap next to the logo */
-  .header .nav{ column-gap: 4px !important; }
-
-  /* three equal columns; very small gaps so items fit */
-  .header .nav nav{
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;  /* 3 equal cells */
-    grid-template-rows: auto auto auto !important;     /* 3 rows */
-    gap: 2px 4px !important;                            /* tighter spacing */
-    width: 100%;
-  }
-
-  /* make each link stay on one line and fit its cell */
-  .header .nav nav > a{
-    display: block;
-    white-space: nowrap !important;    /* no wrapping inside the word */
-    word-break: normal !important;     /* don't split words */
-    overflow-wrap: normal !important;
-    padding: 3px 4px;                  /* slimmer padding */
-    font-size: clamp(12px, 3.4vw, 14px); /* auto shrink on small phones */
-    line-height: 1.15;
-    text-align: center;
-    min-width: 0;                      /* allow shrink within the cell */
-  }
-
-  /* row placement (same as before) */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3; grid-column: 1 / -1; justify-self: start;
-  }
-}
-/* =========================
-   MOBILE HEADER TWEAKS ONLY
-   ========================= */
-@media (max-width: 640px){
-
-  /* Reduce header vertical padding and nudge logo upward */
-  .header{
-    padding-top: 6px !important;
-    padding-bottom: 8px !important;
-  }
-  .header .brand{
-    margin-top: -4px !important;    /* push logo up a touch */
-  }
-  .header .brand img{
-    max-height: 96px !important;    /* adjust 92–102px to taste */
-    height: auto !important;
-    width: auto !important;
-    transform: translateY(-2px);    /* fine alignment */
-  }
-
-  /* Space between logo and the menu */
-  .header .nav{
-    column-gap: 8px !important;     /* small, but gives menu more room */
-  }
-
-  /* Make the 3-column menu breathe more horizontally */
-  .header .nav nav{
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-    row-gap: 6px !important;        /* vertical spacing between rows */
-    column-gap: 16px !important;    /* <-- wider space between columns */
-    width: 100%;
-  }
-
-  /* Keep each label on one line and centered in its cell */
-  .header .nav nav > a{
-    white-space: nowrap !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    padding: 3px 4px;
-    font-size: clamp(12.5px, 3.5vw, 15px);
-    line-height: 1.15;
-    text-align: center;
-    min-width: 0;
-  }
-
-  /* Cell placement (unchanged) */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3; grid-column: 1 / -1; justify-self: start;
-  }
-}
-
-/* Super-narrow phones */
-@media (max-width: 360px){
-  .header .nav nav{
-    column-gap: 12px !important; /* still wider than before */
-  }
-  .header .nav nav > a{
-    font-size: clamp(12px, 3.7vw, 14px);
-  }
-}
-/* --- Mobile nav tightening & equal spacing (desktop unaffected) --- */
-@media (max-width: 640px){
-  /* Less space between logo and the menu */
-  .header { padding-left: 10px !important; padding-right: 10px !important; gap: 6px !important; }
-  .header .brand { margin-right: 4px !important; }      /* nudge logo closer to menu */
-  .header .nav   { margin-left: 0 !important; }         /* no extra indent */
-
-  /* Three perfectly even columns with consistent gaps on BOTH rows */
-  .header .nav nav{
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* equal columns */
-    grid-template-rows: auto auto auto !important;
-    column-gap: 12px !important;   /* ↓ smaller than before, fits Testimonials in frame */
-    row-gap: 8px !important;       /* same spacing between line 1 & 2 */
-    justify-items: center;         /* center labels in each cell */
-    width: 100%;
-  }
-
-  /* Keep each word on a single line */
-  .header .nav nav > a{
-    white-space: nowrap !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    padding: 3px 4px;
-    font-size: clamp(12.5px, 3.4vw, 15px);
-    line-height: 1.15;
-    min-width: 0;
-    text-align: center;
-  }
-
-  /* Cell placement (same as before) */
-  .header .nav nav > a[href="#about"]        { grid-row: 1; grid-column: 1; }
-  .header .nav nav > a[href="#tutoring"]     { grid-row: 1; grid-column: 2; }
-  .header .nav nav > a[href="#testimonials"] { grid-row: 1; grid-column: 3; }
-
-  .header .nav nav > a[href="#worksheets"]   { grid-row: 2; grid-column: 1; }
-  .header .nav nav > a[href="#courses"]      { grid-row: 2; grid-column: 2; }
-  .header .nav nav > a[href="#contact"]      { grid-row: 2; grid-column: 3; }
-
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3; grid-column: 1 / -1; justify-self: start;
-  }
-}
-
-/* If your smallest phone still clips “Testimonials”, un-comment this:
-@media (max-width: 360px){
-  .header .nav nav > a[href="#testimonials"]{ font-size: 13px; }
-}
-*/
-/* Mobile: left-align the first-column items only */
-@media (max-width: 640px){
-  .header .nav nav > a[href="#about"],
-  .header .nav nav > a[href="#worksheets"],
-  .header .nav nav > a[href*="-nursing"]{
-    justify-self: start !important;  /* hug the left of their grid cell */
-    text-align: left !important;     /* keep text left-aligned */
-  }
-}
-/* Mobile: align About &  left, keep Worksheets centered */
-@media (max-width: 640px){
-  /* About &  -> left edge of their columns */
-  .header .nav nav > a[href="#about"],
-  .header .nav nav > a[href*="-nursing"]{
-    justify-self: start !important;
-    text-align: left !important;
-  }
-
-  /* Worksheets -> reset to centered so it doesn't crowd Courses */
-  .header .nav nav > a[href="#worksheets"]{
-    justify-self: center !important;
-    text-align: center !important;
-  }
-}
-/* --- Mobile: lock About +  to the left edge; keep the rest as-is --- */
-@media (max-width: 640px){
-  /* keep a tidy 3x3 grid and consistent gaps */
-  .header .nav nav{
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    grid-template-rows: auto auto auto !important;
-    column-gap: 12px !important;
-    row-gap: 8px !important;
-  }
-
-  /* Row 1: About (col 1), Tutoring (col 2), Testimonials (col 3) */
-  .header .nav nav > a[href="#about"]{
-    grid-row: 1 !important; grid-column: 1 !important;
-    justify-self: start !important; text-align: left !important;
-  }
-
-  /* Row 3:  alone, anchored to the left edge of the frame */
-  .header .nav nav > a[href*="-nursing"]{
-    grid-row: 3 !important; grid-column: 1 / -1 !important;  /* own row */
-    justify-self: start !important; text-align: left !important;
-  }
-
-  /* keep labels on a single line (no mid-word breaks) */
-  .header .nav nav > a{
-    white-space: nowrap !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    padding: 3px 4px;
-    font-size: clamp(12.5px, 3.4vw, 15px);
-    line-height: 1.15;
-  }
-}
-/* --- Mobile nav hard-fix (≤640px). Safe to paste at end of style.css --- */
-@media (max-width: 640px){
-  /* Logo + nav container */
-  .nav{
-    display:flex; align-items:flex-start; gap:12px;
-    padding:8px 12px; box-sizing:border-box;
-  }
-
-  /* Logo a bit bigger on mobile */
-  .nav img{
-    height:58px; width:auto; flex:0 0 auto; display:block;
-  }
-
-  /* Turn nav links into a fixed 3x2 grid + one full-width row */
-  .nav nav{
     display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap:18px; row-gap:8px;
-    max-width: calc(100vw - 130px);     /* keep everything in frame */
-    white-space: nowrap;                 /* prevent word-breaking */
+    grid-template-columns:auto 1fr;
+    column-gap:10px;
+    align-items:start;
+    padding:10px 12px;
   }
 
-  .nav nav a{
-    font-size:18px; line-height:1.1; margin:0; padding:0;
-    letter-spacing:0; word-break: normal; overflow: hidden;
-    text-overflow: ellipsis;
+  .header .nav > nav{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:auto auto auto;
+    gap:8px 10px;
   }
 
-  /* Place links by order:
-     1 About, 2 Tutoring, 3 Testimonials,
-     4 Worksheets, 5 Courses, 6 Contact,
-     7 Nursing Chemistry (full-width row 3) */
-  .nav nav a:nth-child(1){ grid-column:1; grid-row:1; }
-  .nav nav a:nth-child(2){ grid-column:2; grid-row:1; }
-  .nav nav a:nth-child(3){ grid-column:3; grid-row:1; }
-  .nav nav a:nth-child(4){ grid-column:1; grid-row:2; }
-  .nav nav a:nth-child(5){ grid-column:2; grid-row:2; }
-  .nav nav a:nth-child(6){ grid-column:3; grid-row:2; }
-  .nav nav a:nth-child(7){
-    grid-column:1 / -1; grid-row:3; font-weight:700;
-  }
-}
-@media (max-width: 640px){
-  .nav{display:flex; align-items:flex-start; gap:12px; padding:8px 12px;}
-  .nav img{height:60px; width:auto;}
-  .nav nav{display:flex; flex-direction:column; gap:8px; white-space:nowrap;}
-  .nav nav a{font-size:18px; line-height:1.15;}
-}
-/* ——— NAV FONT WEIGHT NORMALIZER (works on mobile & desktop) ——— */
-.nav nav a,
-.nav nav a:link,
-.nav nav a:visited {
-  font-weight: 600 !important;     /* pick 500 or 600 if you prefer lighter */
-  text-decoration: none;
-}
-
-/* If the last item (Contact) has a special class like .btn / .button / .cta */
-.nav nav a.btn,
-.nav nav a.button,
-.nav nav a.cta {
-  font-weight: 600 !important;
-}
-
-/* Ensure nested <strong> in links doesn't make one look heavier */
-.nav nav a strong { font-weight: inherit !important; }
-
-/* iOS/Safari rendering quirks */
-@supports (-webkit-touch-callout: none) {
-  .nav nav a { -webkit-font-smoothing: antialiased; }
-}
-/* === Testimonials: mobile clipping fix (does not affect desktop) === */
-
-/* If your section has an id, keep this first selector. Otherwise the .testimonials*
-   class selectors below will still catch it. */
-#testimonials,
-.testimonials,
-.testimonial-band {
-  /* desktop stays controlled by existing rules */
-}
-
-/* Phones / small tablets */
-@media (max-width: 640px) {
-
-  /* Give the band a taller minimum on small screens */
-  #testimonials,
-  .testimonials,
-  .testimonial-band {
-    min-height: 380px !important;     /* tweak: 320–400px if needed */
-    padding-block: 18px !important;   /* breathing room top & bottom */
+  .header .nav > nav a{
+    margin:0;
+    padding:6px 6px;
+    font-size:14px;
+    line-height:1.15;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
-  /* Let the slides grow to the content height (no clipping) */
-  .testimonial-viewport,
-  .testimonial-track,
-  .testimonial-slide,
-  .testimonial,
-  .testimonial__item {
-    height: auto !important;
-    overflow: visible !important;
+  .header .nav > nav a:nth-child(1){grid-row:1;grid-column:1}
+  .header .nav > nav a:nth-child(2){grid-row:1;grid-column:2}
+  .header .nav > nav a:nth-child(3){grid-row:1;grid-column:3}
+  .header .nav > nav a:nth-child(4){grid-row:2;grid-column:1}
+  .header .nav > nav a:nth-child(5){grid-row:2;grid-column:2}
+  .header .nav > nav a:nth-child(6){grid-row:2;grid-column:3}
+  .header .nav > nav a:nth-child(7){
+    grid-row:3;
+    grid-column:1 / -1;
+    justify-self:start;
+    text-align:left;
+    font-weight:700;
   }
 
-  /* Make sure long names wrap instead of being forced onto one line */
-  .testimonial-author,
-  .testimonial__author {
-    white-space: normal !important;
-    display: block !important;
-    margin-top: .5rem !important;
-    font-weight: 600;                  /* optional, looks nice */
-  }
-
-  /* Slightly smaller, more comfy text on mobile */
-  .testimonial-quote,
-  .testimonial__text {
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-    /* If any line-clamp was used earlier, kill it */
-    display: block !important;
-    -webkit-line-clamp: unset !important;
-    line-clamp: unset !important;
-    -webkit-box-orient: unset !important;
-  }
-
-  /* If the heading + quote are in a two-column grid, stack on mobile */
-  .testimonial-grid,
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr !important;
-    row-gap: 12px;
-    align-items: start;
-  }
-}
-/* === Testimonials: mobile fix for clipping in the green band === */
-@media (max-width: 640px){
-  /* Stack title above quote and give breathing room */
   .band-wrap{
-    grid-template-columns: 1fr !important;
-    row-gap: 12px !important;
-    align-items: flex-start !important;
+    grid-template-columns:1fr !important;
+    row-gap:12px !important;
+    align-items:flex-start !important;
   }
-
-  /* Slightly smaller heading on phones so the quote has room */
-  .band-title{ font-size: 28px !important; }
-
-  /* Let long quotes + names wrap and show fully */
-  .band-quote{
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow: visible !important;
-  }
-
-  /* If you used a generic .cite for the author line, make it wrap */
-  .band .cite{
-    display: block !important;
-    white-space: normal !important;
-    margin-top: 8px !important;
-  }
-
-  /* In case any inline styles set fixed heights inside the band */
-  .band [style*="height"]{ height: auto !important; }
-  .band [style*="max-height"]{ max-height: none !important; }
-  .band [style*="overflow"]{ overflow: visible !important; }
-}
-/* === Testimonials: mobile fix for clipping in the green band === */
-@media (max-width: 640px){
-  /* Stack title above quote and give breathing room */
-  .band-wrap{
-    grid-template-columns: 1fr !important;
-    row-gap: 12px !important;
-    align-items: flex-start !important;
-  }
-
-  /* Slightly smaller heading on phones so the quote has room */
-  .band-title{ font-size: 28px !important; }
-
-  /* Let long quotes + names wrap and show fully */
-  .band-quote{
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow: visible !important;
-  }
-
-  /* If you used a generic .cite for the author line, make it wrap */
-  .band .cite{
-    display: block !important;
-    white-space: normal !important;
-    margin-top: 8px !important;
-  }
-
-  /* In case any inline styles set fixed heights inside the band */
-  .band [style*="height"]{ height: auto !important; }
-  .band [style*="max-height"]{ max-height: none !important; }
-  .band [style*="overflow"]{ overflow: visible !important; }
-}
-/* === Mobile fix: let testimonial band grow; no clipping (desktop unchanged) === */
-@media (max-width: 640px){
-  /* Let the green band and its wrappers grow to the content */
-  #testimonials,
-  #testimonials .band,
-  #testimonials .band-green,
-  #testimonials .band-wrap,
-  #testimonials .band-quote {
-    height: auto !important;
-    max-height: none !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-  }
-
-  /* Make sure quote text and author can wrap normally */
-  #testimonials .band-quote,
-  #testimonials .band-quote * {
-    white-space: normal !important;
-    word-break: normal !important;
-    -webkit-line-clamp: unset !important;
-    line-clamp: unset !important;
-    -webkit-box-orient: unset !important;
-  }
-
-  /* Author line on its own line (no clipping) */
-  #testimonials .cite{
-    display: block !important;
-    margin-top: 8px !important;
-    white-space: normal !important;
-  }
-
-  /* In case a “viewport/track/slide” wrapper is enforcing a height */
-  #testimonials [class*="viewport"],
-  #testimonials [class*="track"],
-  #testimonials [class*="slide"],
-  #testimonials [class*="inner"]{
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-#about .about-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
+  .band-title{font-size:28px}
+  .band-quote{font-size:16px;line-height:1.5;white-space:normal;overflow:visible}
+  .band .cite{display:block;white-space:normal;margin-top:8px}
 }
 
-#about .about-photo {
-  width: 100%;
+@media (max-width:360px){
+  .brand img{max-height:90px !important}
+  .header .nav > nav a{font-size:13px;padding:5px 5px}
 }
 
-#about .about-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-#about .about-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  #about .about-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  #about .about-photo {
-    max-width: 320px;
-    margin: 0 auto 20px;
-  }
-}
