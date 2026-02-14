@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <link rel="icon" href="/favicon.ico">
@@ -6,128 +7,76 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-
+<!-- Required basics -->
 <title>iTutorScience — Professional Chemistry, Organic & Biochemistry Tutoring</title>
-
 <meta content="Expert tutoring in General Chemistry, Organic Chemistry, Biochemistry, and Nursing Chemistry. Patient, results-focused instruction. Online or Montreal-based." name="description"/>
 <link href="https://www.itutorsciences.com/" rel="canonical"/>
-
+<!-- Open Graph / Facebook -->
 <meta content="website" property="og:type"/>
 <meta content="https://www.itutorsciences.com/" property="og:url"/>
 <meta content="iTutorScience — Professional Chemistry, Organic & Biochemistry Tutoring" property="og:title"/>
 <meta content="One-on-one tutoring and worksheets for General, Organic, Biochem, and Nursing Chemistry." property="og:description"/>
 <meta content="https://www.itutorsciences.com/images/home-card-crisp.jpg" property="og:image"/>
-
+<!-- Twitter -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="iTutorScience — Professional Chemistry, Organic & Biochemistry Tutoring" name="twitter:title"/>
 <meta content="One-on-one tutoring and worksheets for General, Organic, Biochem, and Nursing Chemistry." name="twitter:description"/>
 <meta content="https://www.itutorsciences.com/images/home-card-crisp.jpg" name="twitter:image"/>
-
+<!-- Org structured data -->
 <meta content="#0E7A57" name="theme-color"/>
-
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
-
+<!-- keep flask head visible without changing top spacing -->
 <style>
-.hero{ background-position:center bottom !important; }
-.hero .wrap{ padding-bottom:72px !important; }
+    .hero{ background-position:center bottom !important; }
+    .hero .wrap{ padding-bottom:72px !important; }
 
-.about .about-wrap{
-display:grid;
-grid-template-columns:minmax(260px,420px) 1fr;
-gap:28px;
-align-items:start;
-}
+    /* --- ABOUT layout (photo left, text right) --- */
+    .about .about-wrap{
+      display:grid; grid-template-columns:minmax(260px,420px) 1fr;
+      gap:28px; align-items:start;
+    }
+    .about .about-photo{
+      border-radius:16px; overflow:hidden; background:#eef3f4;
+    }
+    .about .about-photo img{
+      display:block; width:100%; height:100%;
+      object-fit:cover; aspect-ratio:1/1; /* keeps a nice square */
+    }
+    .about .about-box{
+      background:#fff; border-radius:14px; padding:18px 22px;
+      box-shadow:0 1px 0 rgba(0,0,0,.04);
+    }
+    @media (max-width: 880px){
+      .about .about-wrap{ grid-template-columns:1fr; }
+      .about .about-photo{ max-width:480px; }
+    }
 
-.about .about-photo{
-border-radius:16px;
-overflow:hidden;
-background:#eef3f4;
-}
-
-.about .about-photo img{
-display:block;
-width:100%;
-height:100%;
-object-fit:cover;
-aspect-ratio:1/1;
-}
-
-.about .about-box{
-background:#fff;
-border-radius:14px;
-padding:18px 22px;
-box-shadow:0 1px 0 rgba(0,0,0,.04);
-}
-
-@media (max-width: 880px){
-.about .about-wrap{ grid-template-columns:1fr; }
-.about .about-photo{ max-width:480px; }
-}
-
-#testimonials .t-wrap{
-max-width:1100px;
-margin:0 auto;
-padding:26px 16px;
-display:grid;
-grid-template-columns:1fr 2fr;
-gap:24px;
-align-items:start;
-}
-
-@media (max-width:800px){
-#testimonials .t-wrap{ grid-template-columns:1fr; }
-}
-
-#testimonials .t-viewport{
-height:150px;
-overflow:hidden;
-}
-
-@media (min-width:801px){
-#testimonials .t-viewport{ height:180px; }
-}
-
-#testimonials h2{
-font-size:34px;
-line-height:1.2;
-margin:0 0 6px;
-}
-
-.t-quote{
-margin:0;
-transition:opacity .6s ease;
-opacity:1;
-font-size:18px;
-line-height:1.6;
-}
-</style>
-
+    /* --- Testimonials band: fixed height + two-column, rotate only text --- */
+    #testimonials .t-wrap{ max-width:1100px; margin:0 auto; padding:26px 16px;
+      display:grid; grid-template-columns:1fr 2fr; gap:24px; align-items:start; }
+    @media (max-width:800px){ #testimonials .t-wrap{ grid-template-columns:1fr; } }
+    #testimonials .t-viewport{ height:150px; overflow:hidden; }
+    @media (min-width:801px){ #testimonials .t-viewport{ height:180px; } }
+    #testimonials h2{ font-size:34px; line-height:1.2; margin:0 0 6px; }
+    .t-quote{ margin:0; transition:opacity .6s ease; opacity:1; font-size:18px; line-height:1.6; }
+  </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "iTutorScience", "url": "https://friendly-moonbeam-f596ec.netlify.app//", "logo": "https://friendly-moonbeam-f596ec.netlify.app//assets/iTutorScience.png", "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "iTutorScience@gmail.com", "areaServed": ["US", "CA"], "availableLanguage": ["en", "fr"]}]}</script><style data-insert="visually-hidden">.visually-hidden{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}</style>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY2NT005QJ"></script>
-
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XY2NT005QJ');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XY2NT005QJ');
 </script>
 
 </head>
-
-<body>
-
-<h1 class="visually-hidden">iTutorScience — Chemistry, Organic & Biochem Tutoring</h1>
-
+<body><h1 class="visually-hidden">iTutorScience — Chemistry, Organic &amp; Biochem Tutoring</h1>
 <header class="header" id="top">
-
 <div class="nav">
-
-<a class="brand" href="#top">
-<img alt="iTutorScience logo" src="assets/iTutorScience.png"/>
-</a>
-
+<a class="brand" href="#top"><img alt="iTutorScience logo" src="assets/iTutorScience.png"/></a>
 <nav>
-
 <a href="#about">About</a>
 <a href="#tutoring">Tutoring</a>
 <a href="#testimonials">Testimonials</a>
@@ -135,74 +84,212 @@ gtag('config', 'G-XY2NT005QJ');
 <a href="#courses">Courses</a>
 <a class="nav-" href="/nursing-chemistry">Nursing Chemistry</a>
 <a href="#contact">Contact</a>
-
 </nav>
-
 </div>
-
 <div class="hero">
 <div class="hero-text">
-<blockquote>
-“The beautiful thing about learning is that no one can take it away from you.”
-</blockquote>
+<blockquote>“The beautiful thing about learning is that no one can take it away from you.”</blockquote>
 <div class="cite">— B.B. King</div>
 </div>
 </div>
-
 </header>
-
 <main>
-
 <!-- ABOUT -->
 <section class="section about" id="about">
 <div class="about-wrap">
-
 <div class="about-photo">
 <img alt="Sara – iTutorScience" loading="lazy" src="images/me-final.png"/>
 </div>
-
 <div class="about-box">
-
 <h2>About me</h2>
-
-<p>
-Hi, I’m Sara. I hold a bachelor's degree in Biochemistry and Molecular Biology from Concordia University in Montréal, Canada. I have many years of tutoring experience. During my studies, I received several prestigious awards—including NSERC and USRA—and graduated in the top 1% for GPA among science students.
-</p>
-
-<p>
-I help university, college and high-school students with chemistry, biochemistry, and math using clear, step-by-step explanations. I tutor online and offer both one-on-one and group sessions.
-</p>
-
-<p>
-Questions? Email
-<a href="mailto:iTutorScience@gmail.com">iTutorScience@gmail.com</a>
-or text at 1-514-589-6783.
-</p>
-
+<p>Hi, I’m Sara. I hold a bachelor's degree in Biochemistry and Molecular Biology from Concordia University in Montréal, Canada. I have many years of tutoring experience. During my studies, I received several prestigious awards—including NSERC and USRA—and graduated in the top 1% for GPA among science students. I help university, college and high-school students with chemistry, biochemistry, and math using clear, step-by-step explanations. I tutor online and offer both one-on-one and group sessions. Questions? Email <a href="mailto:iTutorScience@gmail.com">iTutorScience@gmail.com</a> or text at 1-514-589-6783.</p>
 </div>
-
 </div>
 </section>
+<!-- HOW IT WORKS -->
+<section class="section how" id="tutoring">
+<h2>How It Works</h2>
+<div class="how-grid">
+<div class="how-item"><h3>Subjects</h3><p>Chemistry • Organic Chemistry • Biochemistry • Math</p></div>
+<div class="how-item"><h3>Tutoring Options</h3><p>Online one-on-one sessions or group sessions.</p></div>
+<div class="how-item"><h3>Levels of Teaching</h3><p>Junior High • High School • College / University</p></div>
+<div class="how-item"><h3>Online Group Sessions</h3><p>Affordable small-group classes. Ask for current schedule.</p></div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="band band-green" id="testimonials">
+<div class="t-wrap">
+<div class="t-left">
+<h2>What parents and happy students say</h2>
+</div>
+<div class="t-right">
+<div class="t-viewport">
+<figure aria-live="polite" class="t-quote"></figure>
+</div>
+</div>
+</div>
+</section>
+<!-- WORKSHEETS -->
 
+<section class="section" id="worksheets">
+  <h2>Worksheets</h2>
+  <style>
+    /* Local overrides for worksheets layout */
+    #worksheets .worksheets-grid{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px; align-items:stretch;
+    }
+    #worksheets .card{
+      background:#fff; border-radius:14px; padding:16px 16px 12px;
+      box-shadow:0 1px 0 rgba(0,0,0,.06);
+      display:flex; flex-direction:column; justify-content:space-between;
+      min-height: 220px;
+    }
+    #worksheets .card h3{ margin:6px 0 8px; font-size:18px; line-height:1.2; }
+    #worksheets .price{ margin:0 0 10px; font-weight:600; }
+    #worksheets .actions{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
+    #worksheets .btn{ padding:10px 12px; border-radius:10px; border:1px solid #dde3e7; text-decoration:none; }
+    #worksheets .btn.primary{ background:#0e7afe; color:#fff; border-color:#0e7afe; }
+    #worksheets .small{ color:#5b6970; margin-top:8px; }
+  </style>
 
-<!-- invisible-to-layout but crawlable tutoring link -->
-<div class="container" style="margin-top:40px;margin-bottom:40px;">
-<p>
-Struggling with nursing chemistry?
-<a href="online-nursing-chemistry-tutor.html">
-Get private online nursing chemistry tutoring.
-</a>
-</p>
+  <div class="worksheets-grid">
+    <!-- Put SN1/SN2 FIRST (left) -->
+    <article class="card">
+      <h3>Substitution Reactions — SN1 vs SN2</h3>
+      <p class="price">$8.00 USD</p>
+      <div class="actions">
+        <a class="btn primary" href="#" id="sub-card" rel="noopener" target="_blank">Pay by Card (Stripe)</a>
+        <a class="btn" href="#" id="sub-bitcoin" rel="noopener" target="_blank">Pay with ₿ Bitcoin</a>
+      </div>
+      <p class="small">PDF: <em>Substitution Reactions.pdf</em></p>
+    </article>
+
+    <!-- Put Stereochemistry SECOND (right) -->
+    <article class="card">
+      <h3>Stereochemistry — R/S Configuration</h3>
+      <p class="price">$5.00 USD</p>
+      <div class="actions">
+        <a class="btn primary" href="#" id="stereo-card" rel="noopener" target="_blank">Pay by Card (Stripe)</a>
+        <a class="btn" href="#" id="stereo-bitcoin" rel="noopener" target="_blank">Pay with ₿ Bitcoin</a>
+      </div>
+      <p class="small">PDF: <em>Stereochemistry (R and S Configuration).pdf</em></p>
+    </article>
+  </div>
+
+  <p class="note">After payment you’ll receive a secure download link by email.</p>
+
+  <script>
+    // Safety net: ensure Bitcoin labels stay correct even if other scripts touch them
+    (function(){
+      const map = {
+        'sub-bitcoin': 'Pay with ₿ Bitcoin',
+        'stereo-bitcoin': 'Pay with ₿ Bitcoin'
+      };
+      for(const id in map){
+        const el = document.getElementById(id);
+        if(el) el.textContent = map[id];
+      }
+    })();
+  </script>
+</section>
+
+<!-- COURSES -->
+<section class="section" id="courses">
+<h2>Courses</h2>
+<div class="cards">
+<article class="card">
+<h3>Nursing Chemistry — OChem &amp; Biochem Primer (Recorded)</h3>
+<p>Built specifically for Sacred Heart University nursing students.</p>
+<div class="-teaser" style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin:8px 0 10px;height:clamp(160px,22vw,240px);">
+  <video
+poster="/images/video-pic.png"
+    autoplay
+    muted
+    playsinline
+    loop
+    preload="metadata"
+    style="width:100%;height:100%;object-fit:cover;display:block;">
+    <source src="/videos/nursing-chemistry-teaser.mp4" type="video/mp4">
+<img src="/images/nursing-chemistry-hero.png" alt="Nursing Chemistry course preview"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+  </video>
+  <a href="/nursing-chemistry" aria-label="Open  course page"
+     style="position:absolute;inset:0;display:block;"></a>
 </div>
 
-
+<div class="actions">
+<a class="btn primary" href="/nursing-chemistry" role="button">See details</a>
+</div>
+</article>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+<h2>Contact Me</h2>
+<form class="form" data-netlify="true" method="POST" name="contact">
+<input name="form-name" type="hidden" value="contact"/>
+<div class="row">
+<label>First name*<input name="first" required="" type="text"/></label>
+<label>Last name*<input name="last" required="" type="text"/></label>
+</div>
+<div class="row">
+<label>Email*<input name="email" required="" type="email"/></label>
+<label>Phone<input name="phone" type="tel"/></label>
+</div>
+<div class="row"><label class="full">Message<textarea name="message" rows="5"></textarea></label></div>
+<button class="btn primary" type="submit">Send</button>
+</form>
+<p class="alt-contact">Or email <a href="mailto:iTutorScience@gmail.com">iTutorScience@gmail.com</a> · Text <a href="tel:+15145896783">1-514-589-6783</a></p>
+</section>
 </main>
-
-<footer class="footer">
-© 2026 iTutorScience
-</footer>
-
+<footer class="footer">© 2026 iTutorScience</footer>
+<!-- your app logic -->
 <script src="app.js"></script>
-
+<!-- testimonials rotator -->
+<script>
+  (function(){
+    var root = document.querySelector('#testimonials .t-quote');
+    if(!root){ return; }
+    var quotes = [
+      '“Sara is a very knowledgeable chemistry tutor! She explains concepts clearly and is patient with questions. I felt much more confident in the subject after meeting with her a few times. With her support, I was able to go from a failing grade to passing with a B.” — <strong>Kayla, Nursing Chemistry</strong>',
+      '“As a student athlete, being able to stay ahead of my studies is incredibly important. Sara helped me not only manage, but also excel in organic chemistry.” — <strong>Hailey, University of Wisconsin–Madison</strong>',
+      '“I highly recommend Sara! She has been excellent with my daughter all summer. Definitely put her mind at ease prior to starting the nursing program and these rigorous classes.” — <strong>Michele, Nursing Chemistry parent</strong>',
+      '“I really appreciated how Sara catered to my learning style and was willing to answer questions even outside of our meeting time. I wholeheartedly recommend her as a tutor and I look forward to exploring Biochemistry with her in the future!” — <strong>Becca, Boston University</strong>'
+    ];
+    var i = 0;
+    function setQuote(idx){
+      root.style.opacity = 0;
+      setTimeout(function(){
+        root.innerHTML = quotes[idx];
+        root.style.opacity = 1;
+      }, 350);
+    }
+    setQuote(i);
+    setInterval(function(){ i = (i + 1) % quotes.length; setQuote(i); }, 6000);
+  })();
+  </script>
+<!-- (moved here) mobile-only nav row assignment -->
+<script>
+  (function(){
+    if (!window.matchMedia || !matchMedia('(max-width: 640px)').matches) return;
+    var nav = document.querySelector('.header .nav nav');
+    if (!nav) return;
+    var links = Array.from(nav.querySelectorAll('a'));
+    // Row 1: About, Tutoring, Testimonials
+    links.filter(a => /about|tutor|testimonial/i.test(a.textContent))
+         .forEach(a => a.style.order = 1);
+    // Row 2: Worksheets, Courses, Contact
+    links.filter(a => /worksheet|course|contact/i.test(a.textContent))
+         .forEach(a => a.style.order = 2);
+    // Row 3:  alone
+    links.filter(a => //i.test(a.textContent))
+         .forEach(a => a.style.order = 3);
+    nav.style.display = 'flex';
+    nav.style.flexWrap = 'wrap';
+    nav.style.gap = '12px 28px';
+    links.forEach(a => a.style.flex = '0 0 auto');
+  })();
+  </script>
 </body>
 </html>
