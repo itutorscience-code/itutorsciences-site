@@ -2,7 +2,7 @@
 /nursing-chemistry-access-2026   /private/nursing-chemistry-portal.html   200
 /ping                            /.netlify/functions/ping         200
 /nursing-chemistry               /private/nursing-chemistry.html  200
-/nursing-chemistry-portal        /private/nursing-chemistry-portal.html 200
+/nursing-chemistry-portal        /nursing-chemistry-access-2026 302
 /*                               /index.html                      200
 
 
