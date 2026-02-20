@@ -1,0 +1,20 @@
+# --- Purchase / post-payment landing pages ---
+/thank-you                       /thank-you.html                  200
+/thank-you/                      /thank-you.html                  200
+
+# --- Nursing Chemistry access flow ---
+# If Stripe redirects to either of these, always serve the portal page.
+/nursing-chemistry-access-2026   /nursing-chemistry-portal.html   200
+/nursing-chemistry-portal        /nursing-chemistry-portal.html   200
+
+# If someone hits the old/expired access URL, send them to the expired notice.
+/nursing-chemistry-access        /nursing-chemistry-expired.html  302
+
+# Public marketing page (clean URL)
+/nursing-chemistry               /private/nursing-chemistry.html  200
+
+# Health check
+/ping                            /.netlify/functions/ping         200
+
+# Fallback
+/*                               /index.html                      200
